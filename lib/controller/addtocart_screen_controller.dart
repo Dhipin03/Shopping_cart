@@ -86,12 +86,17 @@ class AddtocartScreenController with ChangeNotifier {
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
     var options = {
       'key': 'rzp_test_1ibUrJgD7bPXSg',
-      'amount': totalamount,
-      'name': 'Acme Corp.',
+      'amount': (totalamount * 100).toInt(),
+      'name': 'Dhipin',
       'description': 'Fine T-Shirt',
       'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'}
     };
-    _razorpay.open(options);
+    try {
+      _razorpay.open(options);
+    } catch (e) {
+      print(e);
+    }
+    notifyListeners();
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {

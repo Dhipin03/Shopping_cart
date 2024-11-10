@@ -184,27 +184,32 @@ class _AddtocartScreenState extends State<AddtocartScreen> {
               ],
             ),
             Spacer(),
-            Container(
-              child: Row(
-                children: [
-                  Text(
-                    'CHECKOUT',
-                    style: TextStyle(
-                        color: ColorConstants.whitecolor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15),
-                  ),
-                  SizedBox(width: 6),
-                  Icon(
-                    Icons.shopping_cart,
-                    color: ColorConstants.whitecolor,
-                  )
-                ],
+            InkWell(
+              onTap: () {
+                context.read<AddtocartScreenController>().paymentmethod();
+              },
+              child: Container(
+                child: Row(
+                  children: [
+                    Text(
+                      'CHECKOUT',
+                      style: TextStyle(
+                          color: ColorConstants.whitecolor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15),
+                    ),
+                    SizedBox(width: 6),
+                    Icon(
+                      Icons.shopping_cart,
+                      color: ColorConstants.whitecolor,
+                    )
+                  ],
+                ),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                decoration: BoxDecoration(
+                    color: ColorConstants.blackcolor,
+                    borderRadius: BorderRadius.circular(10)),
               ),
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-              decoration: BoxDecoration(
-                  color: ColorConstants.blackcolor,
-                  borderRadius: BorderRadius.circular(10)),
             )
           ],
         ),
